@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CarsShopApp from './CarShop'
-
+// import CarsShopApp from './CarShop'
+import Game from './ConnectFour'
+import TriviaApp from './TriviaApp'
 
 function BoilingVerdict(props) {
     if(props.celsius >= 100) {
@@ -207,9 +208,70 @@ function MyShoppingApp(props) {
   )
 }
 
+class Details extends React.Component {
+  render() {
+    return <h1>{this.props.details}</h1>
+  }
+}
+
+class Button extends React.Component {
+  render() {
+    return (
+      <button style = {{color: this.props.active ? 'red' : 'blue'}}
+        onClick = {() => this.props.clickHandler(this.props.id, this.props.name)}>
+        {this.props.name}
+      </button>
+    )
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {activeArray:[0, 0, 0, 0], details:""}
+    this.clickHandler = this.clickHandler.bind(this)
+  }
+  
+  clickHandler(id, details) {
+    let arr = [0, 0, 0, 0]
+    arr[id] = 1
+    this.setState({activeArray: arr, details:details})
+  }
+
+  render() {
+    return (
+      <div>
+        <Button id = {0} active = {this.state.activeArray[0]} clickHandler = {this.clickHandler} name="One"/>
+        <Button id = {1} active = {this.state.activeArray[1]} clickHandler = {this.clickHandler} name="Two"/>
+        <Button id = {2} active = {this.state.activeArray[2]} clickHandler = {this.clickHandler} name="Three"/>
+        <Button id = {3} active = {this.state.activeArray[3]} clickHandler = {this.clickHandler} name="Four"/>
+        <Details details = {this.state.details}/>
+      </div>
+    )
+  }
+}
+
+
+// ReactDOM.render(
+//   <CarsShopApp cars={[{title:'Cars', carData:[{year:2013, model:'A', price:3200}, {year:2011, model:'B', price:4400}] },
+//                       {title:'Trucks', carData:[{year:2014, model:'D', price:18000}, {year:2013, model:'E', price:5200}]},
+//                      {title: 'Convertibles', carData:[{year:2009, model:'F', price:2000}, {year:2010, model:'G', price:6000}]}]}/>,
+//   document.getElementById('root')
+// );
+
+
+// ReactDOM.render(
+//   <Game/>,
+//   document.getElementById('root')
+// );
+
+let qData = [{question:'What is 8X1', choices:[7, 6, 8, 9], correctIdx:2}, 
+            {question:'北京在哪个方位？', choices:['North', 'East', 'South'], correctIdx:0},
+          {question:'who is Eisten?', choices:['German', 'Chines', 'American', 'France', 'English'], correctIdx:0},
+          {question:'what is 99*9', choices:[200, 88, 891], correctIdx:2}];
+
+
 ReactDOM.render(
-  <CarsShopApp cars={[{title:'Cars', carData:[{year:2013, model:'A', price:3200}, {year:2011, model:'B', price:4400}] },
-                      {title:'Trucks', carData:[{year:2014, model:'D', price:18000}, {year:2013, model:'E', price:5200}]},
-                     {title: 'Convertibles', carData:[{year:2009, model:'F', price:2000}, {year:2010, model:'G', price:6000}]}]}/>,
+  <TriviaApp questionsData={qData}/>,
   document.getElementById('root')
 );

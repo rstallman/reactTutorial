@@ -67,3 +67,21 @@ export default function CarsShopApp(props) {
   )
 }
 
+class Welcome extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {value:0}
+  }
+
+  componentDidMount() {
+    this.setState((prevState, props) => {
+      return {value: prevState.value + 1}
+    })
+    console.log(this.state.value)
+  }
+
+  render() {
+    return <h1>{this.state.value}</h1>
+  }
+}
