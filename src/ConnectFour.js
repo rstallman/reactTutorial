@@ -56,11 +56,11 @@ export default class Game extends React.Component{
 
     while( i >= 3){
       if(c[row][i] == val && c[row][i-1] == val && c[row][i-2] == val && c[row][i-3] == val){
-          return 1
+          return 1;
       }
-      i--
+      i--;
     }
-    return 0
+    return 0;
   }
 
   checkVertical(row,col){

@@ -85,3 +85,14 @@ class Welcome extends React.Component {
     return <h1>{this.state.value}</h1>
   }
 }
+
+
+
+
+
+// ReactDOM.render(
+//   <CarsShopApp cars={[{title:'Cars', carData:[{year:2013, model:'A', price:3200}, {year:2011, model:'B', price:4400}] },
+//                       {title:'Trucks', carData:[{year:2014, model:'D', price:18000}, {year:2013, model:'E', price:5200}]},
+//                      {title: 'Convertibles', carData:[{year:2009, model:'F', price:2000}, {year:2010, model:'G', price:6000}]}]}/>,
+//   document.getElementById('root')
+// );
