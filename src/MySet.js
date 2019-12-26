@@ -31,16 +31,6 @@ s.add(6);
 console.log('s should contain 6', s.has(6));
 console.log('s should have 6 memebers and acturally has:', s.size);
  
-const o = {
-    a:'a',
-    b:'b',
-    obj: {
-        key:'key',
-    }
-}
-const o2 = Object.assign({}, o);
-const o3 = deepCopy(o);
-o2.obj.key = 'new value';
 
 function deepCopy(obj) {
     const keys = Object.keys(obj);
@@ -54,6 +44,7 @@ function deepCopy(obj) {
     }
     return newObject;
 }
+
 
 function makeFunctionArray() {
     const arr = [];

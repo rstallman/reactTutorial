@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, combineReducers} from 'redux';
 import Game from './ConnectFour';
-
+import TriviaApp  from './TriviaApp';
 // action creator
 // const addItem = item => {
 //   return {
@@ -47,8 +47,17 @@ import Game from './ConnectFour';
 // }
 
 
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root')
+// );
+let qData = [{question:'What is 8X1', choices:[7, 6, 8, 9], correctIdx:2}, 
+            {question:'北京在哪个方位？', choices:['North', 'East', 'South'], correctIdx:0},
+          {question:'who is Eisten?', choices:['German', 'Chines', 'American', 'France', 'English'], correctIdx:0},
+          {question:'what is 99*9', choices:[200, 88, 891], correctIdx:2}];
+
 ReactDOM.render(
-  <Game />,
+  <TriviaApp questionsData={qData}/>,
   document.getElementById('root')
 );
 
